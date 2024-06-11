@@ -17,10 +17,21 @@ public class Actions{
 
     public void invokeBrowser() {
         // Make sure to update the location of the chromedriver.exe file
-        System.setProperty("webdriver.chrome.driver", "C:/Users/aboussarsar/Desktop/edge/chromedriver.exe");
-        driver = new ChromeDriver();
+         System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
+        //System.setProperty("webdriver.chrome.driver", "/home/ala/project/foryou/foryou/chromedriver");
 
-        driver.get("https://foryou-hra-7-2-hotfix.apps.shr-okd.marc.fr.ssg/app/foryou/index.html#/sydexpert");
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("start-maximized");
+        options.addArguments("--headless");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-gpu");
+        //options.addArguments("--remote-debugging-port=9222");
+
+        driver = new ChromeDriver(options);
+
+         driver.get("https://foryou-hra-7-2-hotfix.apps.shr-okd.marc.fr.ssg/app/foryou/index.html#/sydexpert");
+        //driver.get("http://192.168.18.151:3000/");
         // driver.manage().window().maximize();
 
     }
@@ -284,10 +295,10 @@ public class Actions{
         // TODO Auto-generated method stub
         Actions connection = new Actions();
         connection.invokeBrowser();
-        connection.login("SCONGE16", "4YOU");
+        //connection.login("SCONGE16", "4YOU");
         // connection.getTitle();
         // connection.getWelcomMessage();
-        connection.checkAbsDays();
+        //connection.checkAbsDays();
     }
 
 }

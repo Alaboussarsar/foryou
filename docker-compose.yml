@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  maven-project:
+    build: .
+    volumes:
+      # - /home/ala/project/foryou/foryou/chromedriver:/usr/local/bin/chromedriver
+      - /home/ala/project/foryou/ExtentReports:/app/ExtentReports
+    environment:
+      - CHROME_BIN=/usr/bin/chromium-browser
+    entrypoint: ["/entrypoint.sh"]
